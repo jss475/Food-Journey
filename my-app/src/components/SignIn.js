@@ -1,11 +1,13 @@
-import React from "import";
+import React from "react";
 
 function SignIn() {
   return (
-    <div>
-      <input type="text" />
-      <input type="text" />
-    </div>
+    <form>
+      <h3>Please Sign In!</h3>
+      <input type="username" placeholder="Enter your username"/>
+      <input type="password" placeholder = "Enter your password"/>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 

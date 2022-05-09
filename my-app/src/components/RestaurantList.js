@@ -1,4 +1,4 @@
-import React from "import";
+import React from "react";
 import RestaurantTile from "./RestaurantTile";
 
 function RestaurantList() {

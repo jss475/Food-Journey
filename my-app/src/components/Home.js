@@ -3,9 +3,7 @@ import React from "react";
 function Home() {
   return (
     <div id="about">
-      <h1>Home</h1>
-
-      <img src="https://i.imgur.com/mV8PQxj.gif" alt="" />
+      <h1>Welcome to My Food Journey</h1>
     </div>
   );
 }
