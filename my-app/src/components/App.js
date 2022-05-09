@@ -10,6 +10,13 @@ import { Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 
 function App() {
+
+  function handleSignInSubmit(){
+
+    //do the history to send to home/restaurant list after signing in
+  }
+
+
   return (
     <div>
       <Nav />
