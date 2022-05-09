@@ -1,0 +1,27 @@
+
+{
+    "restaurants": [
+        {
+            "id": 1,
+            "name": "Jeju Noodle Bar",
+            "image": "https://cdn.vox-cdn.com/thumbor/ype-Y4Uj-lG23xvcSogVNEQr3uY=/0x0:3840x2560/920x613/filters:focal(1613x973:2227x1587):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/56618209/1505057222240.0.jpg",
+            "location": "679 Greenwich St, New York, NY 10014",
+            "phone": "646-666-0947",
+            "menu": ["Jeju Fried Chicken", "Ja Jang Style Ribs", "Hae Mul Ceviche", "Gochu Ramyun", 
+                "Family Ramyun", "Wagyu Ramyun", "Buhsut Ramyun", 
+                "Truffle Bibim Myun", "Lamb Ja Jang Myun", "Grilled Amberjack", 
+                "Bone In Ribeye", "Elysian Farm Rack of Lamb"]
+        },
+        {
+            "id": 2,
+            "name": "Danji",
+            "image": "https://sideways.nyc/wp-content/uploads/2014/10/W52-346-Danji-3-JZ-.jpg",
+            "location": "346 W 52nd St, New York, NY 10019",
+            "phone": "212-586-2880",
+            "menu": ["Wild japanese YellowTail Sashimi", "Tofu w. Ginger Scallion Dressing", "Handmade Cripsy Vegetable Dumplings",
+            "Spicy Chicken Wings", "Soy-Honey Chicken Wings", "Bulgogi Beef Sliders", "Shrimp & Scallion Pancake w. Chili Pepper",
+        "Mushroom Japchae Noodles", "Bulgogi Bibimbap w. Miso Soup", "Soy-Poached Black Cod w. Spicy Daikon", "Sizzling Wet Kimchi Fried Rice w. Bacon",
+    "Fresh Noodles in Black Bean Sauce"]
+        }
+    ]
+}
