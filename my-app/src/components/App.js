@@ -6,7 +6,7 @@ import RestaurantTile from "./RestaurantTile";
 import RestaurantList from "./RestaurantList";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 
 function App() {
