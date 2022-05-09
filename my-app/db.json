@@ -22,6 +22,26 @@
             "Spicy Chicken Wings", "Soy-Honey Chicken Wings", "Bulgogi Beef Sliders", "Shrimp & Scallion Pancake w. Chili Pepper",
         "Mushroom Japchae Noodles", "Bulgogi Bibimbap w. Miso Soup", "Soy-Poached Black Cod w. Spicy Daikon", "Sizzling Wet Kimchi Fried Rice w. Bacon",
     "Fresh Noodles in Black Bean Sauce"]
+        },
+        {
+            "id": 3,
+            "name": "Cote",
+            "image": "https://boomersdaily.files.wordpress.com/2021/08/inside-views-cote-korean-steakhouse-new-york-city-eater-video-august-16-2021.jpg",
+            "location": "16 W 22nd St, New York, NY 10010",
+            "phone": "212-401-7986",
+            "menu": ["Wedge Salad", "Steak & Eggs", "Korean 'Bacon'","COTE House Salad","Steak Tartare",
+            "Tuna Tartare","Butcher's Feast", "Steak Omakase", "Ribeye",
+            "NY Strip", "COTE Steak", "'The Flatiron'","Dry Aged NY Strip", "Dry Aged Ribeye","Skirt Steak",
+            "Hanger Steak","COTE Galbi","Grand Cru Galbi", "A5 Japanese Wagyu","Market Fish",
+             "Jan-chi Somyun", "Dol-sot Bibimbop", "Bi-bim Somyun"]
+        },
+        {
+            "id": 4,
+            "name": "Jungsik",
+            "image": "https://tock-test.imgix.net/imagesprod/user_uploaded_images_v1/2483b323e0b12bb5582a47ea456db8db.jpg?ixlib=js-3.5.1&auto=format&fit=crop&crop=focalpoint&w=1440",
+            "location": "2 Harrison St, New York, NY 10013",
+            "phone": "212-219-0900",
+            "menu": ["Carabinero", "Mackerel","Octopus","Black Cod","Tuna Kimbap","Galbi","Rhubarb","Carrot"]
         }
     ]
 }
