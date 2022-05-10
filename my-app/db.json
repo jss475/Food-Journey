@@ -97,12 +97,18 @@
       "id": 1,
       "username": "joe",
       "password": "joe",
-      "liked": []
+      "liked": [
+        1,
+        2
+      ]
     },
     {
       "username": "hyun",
       "password": "hyun",
-      "liked": [],
+      "liked": [
+        1,
+        2
+      ],
       "id": 2
     },
     {

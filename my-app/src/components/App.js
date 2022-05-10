@@ -135,7 +135,7 @@ function App() {
           <SignIn handleSignInSubmit={handleSignInSubmit} />
         </Route>
         <Route path="/restaurants">
-          <RestaurantList />
+          <RestaurantList allUsers={allUsers} />
         </Route>
         <Route path="/signup">
           <SignUp handleSignUpSubmit={handleSignUpSubmit} />
