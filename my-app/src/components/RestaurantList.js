@@ -1,25 +1,22 @@
 import React, {useState, useEffect} from "react";
-import RestaurantTile from "./RestaurantTile";
 import NotLiked from "./NotLiked";
 import Liked from "./Liked";
 
-function RestaurantList() {
+function RestaurantList({}) {
   
+  //make a useState to control the list of all restaurants
   const [allRestaurants, setAllRestaurants] = useState([])
 
+  //make a useEffect to pull all the restaurants
   useEffect(()=> {
     fetch('http://localhost:3000/restaurants')
       .then(resp => resp.json())
       .then(data => setAllRestaurants(data))
   },[])
 
-  const restuarantArray = allRestaurants.map(res => {
-    return <RestaurantTile key={res.id} res={res} />
-  })
-
   return (
       <>
-        <Liked allRestaurants={allRestaurants}/>
+        <Liked allRestaurants={allRestaurants} />
         <NotLiked allRestaurants={allRestaurants}/>
       </>
     );

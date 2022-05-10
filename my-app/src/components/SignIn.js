@@ -1,11 +1,11 @@
 import React from "react";
 
-function SignIn() {
+function SignIn({handleSignInSubmit}) {
   return (
-    <form>
+    <form id="sign_in_form" onSubmit = {handleSignInSubmit}>
       <h3>Please Sign In!</h3>
-      <input type="username" placeholder="Enter your username"/>
-      <input type="password" placeholder = "Enter your password"/>
+      <input name="username" type="username" placeholder="Enter your username"/>
+      <input name="password" type="password" placeholder = "Enter your password"/>
       <button type="submit">Submit</button>
     </form>
   );

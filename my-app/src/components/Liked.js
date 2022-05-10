@@ -1,7 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import RestaurantTile from './RestaurantTile';
+import allUsersContext from './App'
+import loggedInContext from './App'
 
 function Liked({allRestaurants}){
+  const value = useContext(loggedInContext)
+  console.log(value)
     //if statement based off of true/false on logged in or not
 
     const restuarantArray = allRestaurants.map(res => {

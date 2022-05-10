@@ -1,47 +1,133 @@
-
 {
-    "restaurants": [
-        {
-            "id": 1,
-            "name": "Jeju Noodle Bar",
-            "image": "https://cdn.vox-cdn.com/thumbor/ype-Y4Uj-lG23xvcSogVNEQr3uY=/0x0:3840x2560/920x613/filters:focal(1613x973:2227x1587):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/56618209/1505057222240.0.jpg",
-            "location": "679 Greenwich St, New York, NY 10014",
-            "phone": "646-666-0947",
-            "menu": ["Jeju Fried Chicken", "Ja Jang Style Ribs", "Hae Mul Ceviche", "Gochu Ramyun", 
-                "Family Ramyun", "Wagyu Ramyun", "Buhsut Ramyun", 
-                "Truffle Bibim Myun", "Lamb Ja Jang Myun", "Grilled Amberjack", 
-                "Bone In Ribeye", "Elysian Farm Rack of Lamb"]
-        },
-        {
-            "id": 2,
-            "name": "Danji",
-            "image": "https://sideways.nyc/wp-content/uploads/2014/10/W52-346-Danji-3-JZ-.jpg",
-            "location": "346 W 52nd St, New York, NY 10019",
-            "phone": "212-586-2880",
-            "menu": ["Wild japanese YellowTail Sashimi", "Tofu w. Ginger Scallion Dressing", "Handmade Cripsy Vegetable Dumplings",
-            "Spicy Chicken Wings", "Soy-Honey Chicken Wings", "Bulgogi Beef Sliders", "Shrimp & Scallion Pancake w. Chili Pepper",
-        "Mushroom Japchae Noodles", "Bulgogi Bibimbap w. Miso Soup", "Soy-Poached Black Cod w. Spicy Daikon", "Sizzling Wet Kimchi Fried Rice w. Bacon",
-    "Fresh Noodles in Black Bean Sauce"]
-        },
-        {
-            "id": 3,
-            "name": "Cote",
-            "image": "https://boomersdaily.files.wordpress.com/2021/08/inside-views-cote-korean-steakhouse-new-york-city-eater-video-august-16-2021.jpg",
-            "location": "16 W 22nd St, New York, NY 10010",
-            "phone": "212-401-7986",
-            "menu": ["Wedge Salad", "Steak & Eggs", "Korean 'Bacon'","COTE House Salad","Steak Tartare",
-            "Tuna Tartare","Butcher's Feast", "Steak Omakase", "Ribeye",
-            "NY Strip", "COTE Steak", "'The Flatiron'","Dry Aged NY Strip", "Dry Aged Ribeye","Skirt Steak",
-            "Hanger Steak","COTE Galbi","Grand Cru Galbi", "A5 Japanese Wagyu","Market Fish",
-             "Jan-chi Somyun", "Dol-sot Bibimbop", "Bi-bim Somyun"]
-        },
-        {
-            "id": 4,
-            "name": "Jungsik",
-            "image": "https://tock-test.imgix.net/imagesprod/user_uploaded_images_v1/2483b323e0b12bb5582a47ea456db8db.jpg?ixlib=js-3.5.1&auto=format&fit=crop&crop=focalpoint&w=1440",
-            "location": "2 Harrison St, New York, NY 10013",
-            "phone": "212-219-0900",
-            "menu": ["Carabinero", "Mackerel","Octopus","Black Cod","Tuna Kimbap","Galbi","Rhubarb","Carrot"]
-        }
-    ]
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Jeju Noodle Bar",
+      "image": "https://cdn.vox-cdn.com/thumbor/ype-Y4Uj-lG23xvcSogVNEQr3uY=/0x0:3840x2560/920x613/filters:focal(1613x973:2227x1587):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/56618209/1505057222240.0.jpg",
+      "location": "679 Greenwich St, New York, NY 10014",
+      "phone": "646-666-0947",
+      "menu": [
+        "Jeju Fried Chicken",
+        "Ja Jang Style Ribs",
+        "Hae Mul Ceviche",
+        "Gochu Ramyun",
+        "Family Ramyun",
+        "Wagyu Ramyun",
+        "Buhsut Ramyun",
+        "Truffle Bibim Myun",
+        "Lamb Ja Jang Myun",
+        "Grilled Amberjack",
+        "Bone In Ribeye",
+        "Elysian Farm Rack of Lamb"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Danji",
+      "image": "https://sideways.nyc/wp-content/uploads/2014/10/W52-346-Danji-3-JZ-.jpg",
+      "location": "346 W 52nd St, New York, NY 10019",
+      "phone": "212-586-2880",
+      "menu": [
+        "Wild japanese YellowTail Sashimi",
+        "Tofu w. Ginger Scallion Dressing",
+        "Handmade Cripsy Vegetable Dumplings",
+        "Spicy Chicken Wings",
+        "Soy-Honey Chicken Wings",
+        "Bulgogi Beef Sliders",
+        "Shrimp & Scallion Pancake w. Chili Pepper",
+        "Mushroom Japchae Noodles",
+        "Bulgogi Bibimbap w. Miso Soup",
+        "Soy-Poached Black Cod w. Spicy Daikon",
+        "Sizzling Wet Kimchi Fried Rice w. Bacon",
+        "Fresh Noodles in Black Bean Sauce"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Cote",
+      "image": "https://boomersdaily.files.wordpress.com/2021/08/inside-views-cote-korean-steakhouse-new-york-city-eater-video-august-16-2021.jpg",
+      "location": "16 W 22nd St, New York, NY 10010",
+      "phone": "212-401-7986",
+      "menu": [
+        "Wedge Salad",
+        "Steak & Eggs",
+        "Korean 'Bacon'",
+        "COTE House Salad",
+        "Steak Tartare",
+        "Tuna Tartare",
+        "Butcher's Feast",
+        "Steak Omakase",
+        "Ribeye",
+        "NY Strip",
+        "COTE Steak",
+        "'The Flatiron'",
+        "Dry Aged NY Strip",
+        "Dry Aged Ribeye",
+        "Skirt Steak",
+        "Hanger Steak",
+        "COTE Galbi",
+        "Grand Cru Galbi",
+        "A5 Japanese Wagyu",
+        "Market Fish",
+        "Jan-chi Somyun",
+        "Dol-sot Bibimbop",
+        "Bi-bim Somyun"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Jungsik",
+      "image": "https://tock-test.imgix.net/imagesprod/user_uploaded_images_v1/2483b323e0b12bb5582a47ea456db8db.jpg?ixlib=js-3.5.1&auto=format&fit=crop&crop=focalpoint&w=1440",
+      "location": "2 Harrison St, New York, NY 10013",
+      "phone": "212-219-0900",
+      "menu": [
+        "Carabinero",
+        "Mackerel",
+        "Octopus",
+        "Black Cod",
+        "Tuna Kimbap",
+        "Galbi",
+        "Rhubarb",
+        "Carrot"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "joe",
+      "password": "joe",
+      "liked": []
+    },
+    {
+      "username": "hyun",
+      "password": "hyun",
+      "liked": [],
+      "id": 2
+    },
+    {
+      "username": "shin",
+      "password": "shin",
+      "liked": [],
+      "id": 3
+    },
+    {
+      "username": "cho",
+      "password": "cho",
+      "liked": [],
+      "id": 4
+    },
+    {
+      "username": "jeff",
+      "password": "jeff",
+      "liked": [],
+      "id": 5
+    },
+    {
+      "username": "logan",
+      "password": "logan",
+      "liked": [],
+      "id": 6
+    }
+  ]
 }

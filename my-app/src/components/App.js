@@ -1,4 +1,5 @@
 import logo from "../logo.svg";
+import React, {useEffect, useState, createContext} from 'react'
 import "../App.css";
 import About from "./About";
 import Nav from "./Nav";
@@ -6,16 +7,116 @@ import RestaurantTile from "./RestaurantTile";
 import RestaurantList from "./RestaurantList";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-import { Router, Switch, Route, Link } from "react-router-dom";
+import { Router, Switch, Route, Link, useHistory,  } from "react-router-dom";
 import Home from "./Home";
 
 function App() {
 
-  function handleSignInSubmit(){
+  //create useState for the list of users signed up already
+  const [allUsers,setAllUsers] = useState([])
+  //set the history variable to use the useHistory hook
+  const history = useHistory()
+  //set the logged in state to say user has logged in
+  const [loggedIn, setLoggedIn] = useState(false)
 
+  const allUsersContext = createContext(allUsers)
+  const loggedInContext = createContext(loggedIn)
+
+  //fetch the users that have signed up already
+  useEffect(()=> {
+    fetch('http://localhost:3000/users')
+      .then(resp=>resp.json())
+      .then(data=>setAllUsers(data))
+  },[])
+
+  function handleSignInSubmit(e){
+    e.preventDefault()
+    //if statement to make sure you fill out the form
+    if(e.target.password.value === '' && e.target.username.value===''){
+     alert('Please Fill Out Your Username and Password!')
+   }else if(e.target.password.value === ''){
+     alert('Please Fill Out Your Password')
+   }else if(e.target.username.value===''){
+     alert('Please Fill Out Your Username')
+   }else{
+     //filter out the users that are signed in
+     let filteredUsers = allUsers.filter(user => {
+       if(user.username === e.target.username.value && user.password === e.target.password.value){
+         return true
+       }else{
+         return false
+       }
+     })
+     
+     //if of bang of the .length so that I am looking for true when it's empty
+     if(!filteredUsers.length){
+       alert('Your Username and Password Are Not In The System')
+     }else{
+       //set the state of the users as logged in
+       setLoggedIn(true)
+       //if user is in the system, redirect the website to restaurants
+       history.push('/restaurants')
+     }
+   }
     //do the history to send to home/restaurant list after signing in
-  }
 
+
+    //reset the form after the submit
+    document.querySelector('#sign_in_form').reset()
+  }
+//////////////////////////// SIGN UP SUBMIT /////////////////////////
+  function handleSignUpSubmit(e){
+    e.preventDefault()
+     //if statement to make sure you fill out the form
+     if(e.target.password.value === '' && e.target.username.value===''){
+      alert('Please Fill Out Your Username and Password!')
+    }else if(e.target.password.value === ''){
+      alert('Please Fill Out Your Password')
+    }else if(e.target.username.value===''){
+      alert('Please Fill Out Your Username')
+    }else{
+      //filter out the users that have the same username
+      let filteredUsers = allUsers.filter(user => {
+        if(user.username === e.target.username.value){
+          return true
+        }else{
+          return false
+        }
+      })
+      
+      //if of bang of the .length so that I am looking for true when it's empty
+      if(filteredUsers.length){
+        alert('Your Username Is In The System. Please Choose Another One!')
+      }else{
+        alert('Thanks for Signing Up!')
+        //if user is in the system, redirect the website to the list of restaurants
+        history.push('/restaurants')
+        //set the state of logged in to true
+        setLoggedIn(true)
+
+
+        //post the new user into the database
+        let configObj = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username:e.target.username.value,
+            password:e.target.password.value,
+            liked: []
+          })
+        }
+
+        fetch('http://localhost:3000/users',configObj)
+          .then(res => res.json())
+          .then(data => setAllUsers([...allUsers,data]))
+      }
+    }
+    
+     //reset the form after the submit
+     document.querySelector('#sign_up_form').reset()
+  }
 
   return (
     <div>
@@ -25,13 +126,17 @@ function App() {
           <About />
         </Route>
         <Route path="/signin">
-          <SignIn />
+          <SignIn handleSignInSubmit={handleSignInSubmit}/>
         </Route>
         <Route path="/restaurants">
-          <RestaurantList />
+          <loggedInContext.Provider value={loggedIn}>
+          <allUsersContext.Provider value={allUsers} >
+            <RestaurantList />
+          </allUsersContext.Provider>
+          </loggedInContext.Provider>
         </Route>
         <Route path="/signup">
-          <SignUp />
+          <SignUp handleSignUpSubmit={handleSignUpSubmit}/>
         </Route>
         <Route exact path="/">
           <Home />
@@ -44,4 +149,5 @@ function App() {
   );
 }
 
-export default App;
+
+export default App
