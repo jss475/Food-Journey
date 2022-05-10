@@ -1,14 +1,14 @@
 import logo from "../logo.svg";
-import React, {useEffect, useState, createContext} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import "../App.css";
 import About from "./About";
 import Nav from "./Nav";
-import RestaurantTile from "./RestaurantTile";
 import RestaurantList from "./RestaurantList";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-import { Router, Switch, Route, Link, useHistory,  } from "react-router-dom";
+import { Switch, Route, Link, useHistory} from "react-router-dom";
 import Home from "./Home";
+import {UserLoggedInContext} from '../context/UserLoggedIn'
 
 function App() {
 
@@ -19,8 +19,10 @@ function App() {
   //set the logged in state to say user has logged in
   const [loggedIn, setLoggedIn] = useState(false)
 
-  const allUsersContext = createContext(allUsers)
-  const loggedInContext = createContext(loggedIn)
+  //set the current user
+  const [currentUser, setCurrentUser] = useContext(UserLoggedInContext)
+
+
 
   //fetch the users that have signed up already
   useEffect(()=> {
@@ -29,6 +31,7 @@ function App() {
       .then(data=>setAllUsers(data))
   },[])
 
+  ///////////////////////// SIGN IN ////////////////////////////////
   function handleSignInSubmit(e){
     e.preventDefault()
     //if statement to make sure you fill out the form
@@ -54,6 +57,8 @@ function App() {
      }else{
        //set the state of the users as logged in
        setLoggedIn(true)
+       //save current user
+       setCurrentUser(e.target.username.value)
        //if user is in the system, redirect the website to restaurants
        history.push('/restaurants')
      }
@@ -94,6 +99,8 @@ function App() {
         //set the state of logged in to true
         setLoggedIn(true)
 
+        //save current user
+        setCurrentUser(e.target.username.value)
 
         //post the new user into the database
         let configObj = {
@@ -121,30 +128,26 @@ function App() {
   return (
     <div>
       <Nav />
-      <Switch>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/signin">
-          <SignIn handleSignInSubmit={handleSignInSubmit}/>
-        </Route>
-        <Route path="/restaurants">
-          <loggedInContext.Provider value={loggedIn}>
-          <allUsersContext.Provider value={allUsers} >
-            <RestaurantList />
-          </allUsersContext.Provider>
-          </loggedInContext.Provider>
-        </Route>
-        <Route path="/signup">
-          <SignUp handleSignUpSubmit={handleSignUpSubmit}/>
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="*">
-          <h1>404 not found</h1>
-        </Route>
-      </Switch>
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/signin">
+            <SignIn handleSignInSubmit={handleSignInSubmit}/>
+          </Route>
+          <Route path="/restaurants">
+              <RestaurantList />
+          </Route>
+          <Route path="/signup">
+            <SignUp handleSignUpSubmit={handleSignUpSubmit}/>
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="*">
+            <h1>404 not found</h1>
+          </Route>
+        </Switch>
     </div>
   );
 }

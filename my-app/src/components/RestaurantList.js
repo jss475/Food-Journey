@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import NotLiked from "./NotLiked";
 import Liked from "./Liked";
+import {UserLoggedInContext} from '../context/UserLoggedIn'
 
 function RestaurantList({}) {
-  
+  const [currentUser] = useContext(UserLoggedInContext)
+  console.log(currentUser)
   //make a useState to control the list of all restaurants
   const [allRestaurants, setAllRestaurants] = useState([])
 
