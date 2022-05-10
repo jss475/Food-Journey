@@ -1,7 +1,13 @@
 import React, { useContext } from "react";
 import RestaurantTile from "./RestaurantTile";
 
-function Liked({ likedRes, handleLike, handleDisLike }) {
+function Liked({
+  likedRes,
+  handleLike,
+  handleDisLike,
+  disable,
+  disableDislike,
+}) {
   //if statement based off of true/false on logged in or not
 
   const restuarantArray = likedRes.map((res) => {
@@ -11,6 +17,8 @@ function Liked({ likedRes, handleLike, handleDisLike }) {
         res={res}
         handleLike={handleLike}
         handleDisLike={handleDisLike}
+        disable={disable}
+        disableDislike={disableDislike}
       />
     );
   });

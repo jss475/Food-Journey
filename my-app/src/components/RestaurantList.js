@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useTransition } from "react";
 import NotLiked from "./NotLiked";
 import Liked from "./Liked";
 import { UserLoggedInContext } from "../context/UserLoggedIn";
@@ -9,6 +9,8 @@ function RestaurantList({}) {
   //make a useState to control the list of all restaurants
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [likedRes, setLikedRes] = useState([]);
+  const [disable, setDisable] = useState(false); //disable Like button after a click
+  const [disableDislike, setDisbaleDislike] = useState(true);
 
   // when like button gets clicked, clicked data gets sent to this function
   function handleLike(data) {
@@ -22,7 +24,9 @@ function RestaurantList({}) {
     // we set all restaurant to show all excepte for the one that we like
     setAllRestaurants((allRestaurants) => filteredLike);
     //disable the like button
-    document.querySelector("#like_button").disabled = true;
+    //document.querySelector("#like_button").disabled = true;
+    setDisable(true);
+    setDisbaleDislike(false);
   }
   // when dislike button gets clicked, clicked data gets sent to this function
   function handleDisLike(data) {
@@ -35,8 +39,8 @@ function RestaurantList({}) {
     setLikedRes((likedRes) => filteredRes);
     // we update the data that we disliked to all restaurant list
     setAllRestaurants([...allRestaurants, data]);
-    //enable like button
-    document.querySelector("#like_button").disabled = false;
+    //disable dislike button
+    setDisbaleDislike(true);
   }
 
   //make a useEffect to pull all the restaurants
@@ -52,11 +56,13 @@ function RestaurantList({}) {
         likedRes={likedRes}
         handleLike={handleLike}
         handleDisLike={handleDisLike}
+        disable={disable}
       />
       <NotLiked
         allRestaurants={allRestaurants}
         handleLike={handleLike}
         handleDisLike={handleDisLike}
+        disableDislike={disableDislike}
       />
     </>
   );

@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
-function RestaurantTile({ res, handleLike, handleDisLike }) {
+function RestaurantTile({
+  res,
+  handleLike,
+  handleDisLike,
+  disable,
+  disableDislike,
+}) {
   const { id, name, image, location, phone, menu } = res;
 
   return (
@@ -10,13 +16,18 @@ function RestaurantTile({ res, handleLike, handleDisLike }) {
       <br />
       <button
         id="like_button"
+        disabled={disable}
         onClick={() => {
           handleLike(res);
         }}
       >
         👍
       </button>
-      <button id="dislike_button" onClick={() => handleDisLike(res)}>
+      <button
+        id="dislike_button"
+        disabled={disableDislike}
+        onClick={() => handleDisLike(res)}
+      >
         👎
       </button>
     </div>
