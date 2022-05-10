@@ -26,7 +26,6 @@ function RestaurantList({}) {
     //disable the like button
     //document.querySelector("#like_button").disabled = true;
     setDisable(true);
-    setDisbaleDislike(false);
   }
   // when dislike button gets clicked, clicked data gets sent to this function
   function handleDisLike(data) {
