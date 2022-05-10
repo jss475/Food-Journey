@@ -6,9 +6,7 @@ const UserLoggedInContext = createContext();
 //create context provider
 function UserLoggedInProvider({ children }) {
   const [currentUser, setCurrentUser] = useState({
-    username: "",
-    password: "",
-    liked: [],
+
   });
 
   const value = [currentUser, setCurrentUser];
