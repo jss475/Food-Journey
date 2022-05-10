@@ -6,13 +6,8 @@ import { UserLoggedInContext } from "../context/UserLoggedIn";
 //we initialize an array of what is liked
 let likedArray = [];
 
-function RestaurantList({ allUsers }) {
+function RestaurantList({ allUsers, loggedIn }) {
   const [currentUser] = useContext(UserLoggedInContext); //username is set to currentUser
-
-  //then we can do a filter where we return id
-  const userID = allUsers.filter((user) => {
-    return user.username === currentUser;
-  });
 
   // console.log(userID);
   //make a useState to control the list of all restaurants
@@ -21,17 +16,30 @@ function RestaurantList({ allUsers }) {
   const [disable, setDisable] = useState(false); //disable Like button after a click
   const [disableDislike, setDisbaleDislike] = useState(true);
 
+  //make a useEffect to pull all the restaurants
   useEffect(() => {
-    if (userID.length) {
-      let likedListOfUser = userID[0].liked;
-      //we do a filter on allrestaurants to filter what has been liked already
+    fetch("http://localhost:3000/restaurants")
+      .then((resp) => resp.json())
+      .then((data) => setAllRestaurants(data));
+  }, []);
+
+  //then we can do a filter where we return id
+  const userID = allUsers.filter((user) => {
+    return user.username === currentUser;
+  });
+
+  useEffect(() => {
+    //we do a filter on allrestaurants to filter what has been liked already
+    if (loggedIn) {
       let alreadyLiked = allRestaurants.filter((res) => {
-        return +likedListOfUser.includes(+res.id);
+        return +userID[0].liked.includes(+res.id);
       });
-      debugger;
-      setLikedRes(alreadyLiked); //we're setting the number 1 and 2. Not the restaurant data
-      console.log("hi");
+      let notLiked = allRestaurants.filter((res) => {
+        return !userID[0].liked.includes(+res.id);
+      });
+      setLikedRes((likedRes) => alreadyLiked);
     }
+    //we're setting the number 1 and 2. Not the restaurant data
   }, [currentUser]);
 
   // when like button gets clicked, clicked data gets sent to this function
@@ -88,13 +96,6 @@ function RestaurantList({ allUsers }) {
       body: JSON.stringify({ liked: likedArray }),
     });
   }
-
-  //make a useEffect to pull all the restaurants
-  useEffect(() => {
-    fetch("http://localhost:3000/restaurants")
-      .then((resp) => resp.json())
-      .then((data) => setAllRestaurants(data));
-  }, []);
 
   return (
     <>
