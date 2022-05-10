@@ -5,14 +5,17 @@ import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { UserLoggedInProvider } from "./context/UserLoggedIn";
+import { AllRestaurantsProvider } from "./context/AllRestaurants";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <AllRestaurantsProvider>
   <UserLoggedInProvider>
   <BrowserRouter>
     <App />
   </BrowserRouter>
   </UserLoggedInProvider>
+  </AllRestaurantsProvider>
 
 );
 
