@@ -34,7 +34,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   //set the current user
-  const [setCurrentUser] = useContext(UserLoggedInContext);
+  const [currentUser, setCurrentUser] = useContext(UserLoggedInContext);
   //set all the restaurants
   const [allRestaurants, setAllRestaurants] = useContext(AllRestaurantsContext);
   //fetch the users that have signed up already
