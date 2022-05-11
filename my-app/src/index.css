@@ -85,6 +85,18 @@ code {
   background-size:cover;
 }
 
+#sign_up_bg {
+  background-image: url('signin2.jpg');
+
+  height: 100vh;
+
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+
+
 
 /* //////////////////////THIS IS FOR SIGN IN AND SIGN UP ONLY////////////////////// */
 .loginbox{

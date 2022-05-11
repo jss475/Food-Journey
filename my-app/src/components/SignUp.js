@@ -2,7 +2,7 @@ import React from "react";
 
 function SignUp({ handleSignUpSubmit }) {
   return (
-    <div id="sign_in_bg">
+    <div id="sign_up_bg">
       <div className="loginbox">
         <h3>Please Sign Up!</h3>
         <form id="sign_up_form" onSubmit={handleSignUpSubmit}>
