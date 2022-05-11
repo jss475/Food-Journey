@@ -103,6 +103,8 @@ function App() {
         setCurrentUser(e.target.username.value);
         //if user is in the system, redirect the website to restaurants
         history.push("/restaurants");
+        //local storage of username
+        localStorage.setItem('username',e.target.username.value)
       }
     }
     //do the history to send to home/restaurant list after signing in

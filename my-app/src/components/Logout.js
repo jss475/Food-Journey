@@ -21,6 +21,7 @@ function Logout(){
             alert("You're not logged in!")
             history.push('/signin')
           }
+          localStorage.setItem('username','')
 
     }
 

@@ -11,7 +11,7 @@ let likedArray = [];
 function RestaurantList({ allUsers, currentPath }) {
 
 
-  const [currentUser] = useContext(UserLoggedInContext); //username is set to currentUser
+  const [currentUser, setCurrentUser] = useContext(UserLoggedInContext); //username is set to currentUser
   const [allRestaurants] = useContext(AllRestaurantsContext);
   //then we can do a filter where we return id
   const userID = allUsers.filter((user) => {
@@ -41,6 +41,13 @@ function RestaurantList({ allUsers, currentPath }) {
     }else{
       console.log(allRestaurants)
       setDislikedRes(allRestaurants)
+    }
+
+    const userLoggedBefore = localStorage.getItem('username')
+    if(userLoggedBefore===null){
+      
+    }else if(userLoggedBefore.length){
+      setCurrentUser(userLoggedBefore)
     }
 
     //we're setting the number 1 and 2. Not the restaurant data
