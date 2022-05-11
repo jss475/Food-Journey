@@ -8,7 +8,7 @@ import { AllRestaurantsContext } from "../context/AllRestaurants";
 //we initialize an array of what is liked
 let likedArray = [];
 
-function RestaurantList({ allUsers, currentPath }) {
+function RestaurantList({ allUsers, currentPath, loggedIn }) {
 
 
   const [currentUser, setCurrentUser] = useContext(UserLoggedInContext); //username is set to currentUser
@@ -130,12 +130,16 @@ function RestaurantList({ allUsers, currentPath }) {
         handleLike={handleLike}
         handleDisLike={handleDisLike}
         disable={disable}
+        disableDislike={disableDislike}
+        loggedIn={loggedIn}
       />
       <NotLiked
         dislikedRes={dislikedRes}
         handleLike={handleLike}
         handleDisLike={handleDisLike}
         disableDislike={disableDislike}
+        disable={disable}
+        loggedIn={loggedIn}
       />
     </>
   );

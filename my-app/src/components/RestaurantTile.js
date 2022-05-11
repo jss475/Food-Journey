@@ -6,6 +6,7 @@ function RestaurantTile({
   handleDisLike,
   disable,
   disableDislike,
+  loggedIn,
 }) {
   const { id, name, image, location, phone, menu } = res;
 
@@ -16,7 +17,7 @@ function RestaurantTile({
       <br />
       <button
         id="like_button"
-        disabled={disable}
+        disabled={loggedIn ? disable : !disable}
         onClick={() => {
           handleLike(res);
         }}
