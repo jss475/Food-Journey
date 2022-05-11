@@ -6,10 +6,12 @@ import Nav from "./Nav";
 import RestaurantList from "./RestaurantList";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import Logout from "./Logout";
 import { Switch, Route, Link, useHistory } from "react-router-dom";
 import Home from "./Home";
 import { UserLoggedInContext } from "../context/UserLoggedIn";
 import { AllRestaurantsContext } from "../context/AllRestaurants";
+import {SignedInContext} from "../context/SignedIn"
 
 function App() {
 
@@ -30,8 +32,9 @@ function App() {
  },[history]) 
 
 
+
   //set the logged in state to say user has logged in
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useContext(SignedInContext);
 
   //set the current user
   const [currentUser, setCurrentUser] = useContext(UserLoggedInContext);
@@ -53,6 +56,18 @@ function App() {
       .then((data) => setAllRestaurants(data));
   }, []);
 
+  // if(currentPath === '/logout'){
+  //   if(currentUser.length && loggedIn===true){
+  //     alert("You've logged out!")
+      
+  //     setCurrentUser('')
+  //     setLoggedIn(false)
+  //     history.push('/')
+  //   } else{
+  //     alert("You're not logged in!")
+  //     history.push('/signin')
+  //   }
+  // }
   
 
   ///////////////////////// SIGN IN ////////////////////////////////
@@ -179,6 +194,9 @@ function App() {
           <h1>404 not found</h1>
         </Route>
       </Switch>
+   
+      <Logout />
+
     </div>
   );
 }

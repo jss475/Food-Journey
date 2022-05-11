@@ -6,10 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { UserLoggedInProvider } from "./context/UserLoggedIn";
 import { AllRestaurantsProvider } from "./context/AllRestaurants";
+import { SignedInProvider } from "./context/SignedIn";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <SignedInProvider>
   <AllRestaurantsProvider>
   <UserLoggedInProvider>
   <BrowserRouter>
@@ -17,6 +19,8 @@ root.render(
   </BrowserRouter>
   </UserLoggedInProvider>
   </AllRestaurantsProvider>
+  </SignedInProvider>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
