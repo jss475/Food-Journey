@@ -4,55 +4,23 @@ import Liked from "./Liked";
 import { UserLoggedInContext } from "../context/UserLoggedIn";
 import { AllRestaurantsContext } from "../context/AllRestaurants";
 
-
 //we initialize an array of what is liked
 let likedArray = [];
 
-function RestaurantList({ allUsers, loggedIn }) {
+function RestaurantList({ allUsers }) {
   const [currentUser] = useContext(UserLoggedInContext); //username is set to currentUser
-<<<<<<< HEAD
-=======
-  const [allRestaurants, setAllRestaurants] = useContext(AllRestaurantsContext)
+  const [allRestaurants, setAllRestaurants] = useContext(AllRestaurantsContext);
   //then we can do a filter where we return id
   const userID = allUsers.filter((user) => {
     return user.username === currentUser;
   });
->>>>>>> 39914c31a4f82f01ad3943f1449be7c5cce3b4ad
 
   // console.log(userID);
-  
+
   const [likedRes, setLikedRes] = useState([]);
   const [disable, setDisable] = useState(false); //disable Like button after a click
   const [disableDislike, setDisbaleDislike] = useState(true);
 
-<<<<<<< HEAD
-  //make a useEffect to pull all the restaurants
-  useEffect(() => {
-    fetch("http://localhost:3000/restaurants")
-      .then((resp) => resp.json())
-      .then((data) => setAllRestaurants(data));
-  }, []);
-
-  //then we can do a filter where we return id
-  const userID = allUsers.filter((user) => {
-    return user.username === currentUser;
-  });
-
-  useEffect(() => {
-    //we do a filter on allrestaurants to filter what has been liked already
-    if (loggedIn) {
-      let alreadyLiked = allRestaurants.filter((res) => {
-        return +userID[0].liked.includes(+res.id);
-      });
-      let notLiked = allRestaurants.filter((res) => {
-        return !userID[0].liked.includes(+res.id);
-      });
-      setLikedRes((likedRes) => alreadyLiked);
-=======
- 
-
- 
-  
   useEffect(() => {
     if (userID.length && allRestaurants.length) {
       let likedListOfUser = userID[0].liked;
@@ -60,16 +28,18 @@ function RestaurantList({ allUsers, loggedIn }) {
       let alreadyLiked = allRestaurants.filter((res) => {
         return likedListOfUser.includes(+res.id);
       });
+      let noLiked = allRestaurants.filter((res) => {
+        return !likedListOfUser.includes(+res.id);
+      });
       setLikedRes(alreadyLiked); //we're setting the number 1 and 2. Not the restaurant data
-      likedArray=likedListOfUser
-
->>>>>>> 39914c31a4f82f01ad3943f1449be7c5cce3b4ad
+      likedArray = likedListOfUser;
+      setAllRestaurants((allRestaurants) => noLiked);
+      setDisable(true);
     }
     //we're setting the number 1 and 2. Not the restaurant data
   }, [currentUser]);
 
-
-  console.log(likedRes)
+  console.log(likedRes);
   // when like button gets clicked, clicked data gets sent to this function
   function handleLike(data) {
     // filter all restaurant and return all except for the one that we liked
@@ -125,11 +95,6 @@ function RestaurantList({ allUsers, loggedIn }) {
     });
   }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 39914c31a4f82f01ad3943f1449be7c5cce3b4ad
   return (
     <>
       <Liked

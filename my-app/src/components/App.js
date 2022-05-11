@@ -9,7 +9,7 @@ import SignUp from "./SignUp";
 import { Switch, Route, Link, useHistory } from "react-router-dom";
 import Home from "./Home";
 import { UserLoggedInContext } from "../context/UserLoggedIn";
-import {AllRestaurantsContext} from "../context/AllRestaurants"
+import { AllRestaurantsContext } from "../context/AllRestaurants";
 
 function App() {
   //create useState for the list of users signed up already
@@ -22,7 +22,7 @@ function App() {
   //set the current user
   const [currentUser, setCurrentUser] = useContext(UserLoggedInContext);
   //set all the restaurants
-  const [allRestaurants,setAllRestaurants] = useContext(AllRestaurantsContext)
+  const [allRestaurants, setAllRestaurants] = useContext(AllRestaurantsContext);
   //fetch the users that have signed up already
   useEffect(() => {
     fetch("http://localhost:3000/users")
@@ -30,9 +30,8 @@ function App() {
       .then((data) => setAllUsers(data));
   }, []);
 
-
-   //make a useEffect to pull all the restaurants
-   useEffect(() => {
+  //make a useEffect to pull all the restaurants
+  useEffect(() => {
     fetch("http://localhost:3000/restaurants")
       .then((resp) => resp.json())
       .then((data) => setAllRestaurants(data));
@@ -145,11 +144,11 @@ function App() {
           <SignIn handleSignInSubmit={handleSignInSubmit} />
         </Route>
         <Route path="/restaurants">
-<<<<<<< HEAD
-          <RestaurantList allUsers={allUsers} loggedIn={loggedIn} />
-=======
-          <RestaurantList allUsers={allUsers} allRestaurants={allRestaurants} loggedIn={loggedIn}/>
->>>>>>> 39914c31a4f82f01ad3943f1449be7c5cce3b4ad
+          <RestaurantList
+            allUsers={allUsers}
+            allRestaurants={allRestaurants}
+            loggedIn={loggedIn}
+          />
         </Route>
         <Route path="/signup">
           <SignUp handleSignUpSubmit={handleSignUpSubmit} />
