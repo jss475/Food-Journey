@@ -4,13 +4,10 @@ import Liked from "./Liked";
 import { UserLoggedInContext } from "../context/UserLoggedIn";
 import { AllRestaurantsContext } from "../context/AllRestaurants";
 
-
 //we initialize an array of what is liked
 let likedArray = [];
 
-function RestaurantList({ allUsers, currentPath }) {
-
-
+function RestaurantList({ allUsers, currentPath, loggedIn }) {
   const [currentUser] = useContext(UserLoggedInContext); //username is set to currentUser
   const [allRestaurants] = useContext(AllRestaurantsContext);
   //then we can do a filter where we return id
@@ -19,10 +16,11 @@ function RestaurantList({ allUsers, currentPath }) {
   });
 
   const [likedRes, setLikedRes] = useState([]);
-  const [dislikedRes,setDislikedRes] = useState(allRestaurants)
-  const [disable, setDisable] = useState(false); //disable Like button after a click
+  const [dislikedRes, setDislikedRes] = useState(allRestaurants);
+
+  const [disable, setDisable] = useState(true); //disable Like button after a click
   const [disableDislike, setDisbaleDislike] = useState(true);
-  
+
   useEffect(() => {
     //if there is a userID and the restaurants are loaded run the if statement
     if (userID.length && allRestaurants.length) {
@@ -38,38 +36,24 @@ function RestaurantList({ allUsers, currentPath }) {
       likedArray = likedListOfUser;
       setDislikedRes((dislikedRes) => noLiked);
       setDisable(true);
-    }else{
-      console.log(allRestaurants)
-      setDislikedRes(allRestaurants)
+    } else {
+      setDislikedRes(allRestaurants);
     }
 
     //we're setting the number 1 and 2. Not the restaurant data
-  }, [currentUser, currentPath, allRestaurants]); //dependency on username change, link change, and all restaurants being updated 
+  }, [currentUser, currentPath, allRestaurants]); //dependency on username change, link change, and all restaurants being updated
 
   //console.log(likedRes);
-  
-
-
-
-
-
-
-
-
-
-
-
-
 
   // when like button gets clicked, clicked data gets sent to this function
   function handleLike(data) {
     // filter all restaurant and return all except for the one that we liked
-    const filteredLike = allRestaurants.filter((res) => {
+    const filteredLike = dislikedRes.filter((res) => {
       return res.id !== data.id;
     });
     //add the restaurant id to the liked array
     likedArray.push(data.id);
-    
+
     fetch(`http://localhost:3000/users/${userID[0].id}`, {
       method: "PATCH",
       headers: {
@@ -123,12 +107,16 @@ function RestaurantList({ allUsers, currentPath }) {
         handleLike={handleLike}
         handleDisLike={handleDisLike}
         disable={disable}
+        disableDislike={disableDislike}
+        loggedIn={loggedIn}
       />
       <NotLiked
         dislikedRes={dislikedRes}
         handleLike={handleLike}
         handleDisLike={handleDisLike}
         disableDislike={disableDislike}
+        disable={disable}
+        loggedIn={loggedIn}
       />
     </>
   );

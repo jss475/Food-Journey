@@ -6,6 +6,8 @@ function NotLiked({
   handleLike,
   handleDisLike,
   disableDislike,
+  disable,
+  loggedIn,
 }) {
   //if statement based off of true/false on logged in or not
 
@@ -17,6 +19,7 @@ function NotLiked({
         handleLike={handleLike}
         handleDisLike={handleDisLike}
         disableDislike={disableDislike}
+        loggedIn={loggedIn}
       />
     );
   });
