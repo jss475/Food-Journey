@@ -12,15 +12,29 @@ import { UserLoggedInContext } from "../context/UserLoggedIn";
 import { AllRestaurantsContext } from "../context/AllRestaurants";
 
 function App() {
+
+
   //create useState for the list of users signed up already
   const [allUsers, setAllUsers] = useState([]);
   //set the history variable to use the useHistory hook
   const history = useHistory();
+
+  //we are tracking the route changes wit a state variable called current path
+  //current path is then sent to restaurantlist where it is used in the useEffect
+  const [currentPath, setCurrentPath] = useState('')
+  useEffect(() => {
+    return history.listen((location) => { 
+       console.log(`You changed the page to: ${location.pathname}`)
+       setCurrentPath(location.pathname) 
+    }) 
+ },[history]) 
+
+
   //set the logged in state to say user has logged in
   const [loggedIn, setLoggedIn] = useState(false);
 
   //set the current user
-  const [currentUser, setCurrentUser] = useContext(UserLoggedInContext);
+  const [setCurrentUser] = useContext(UserLoggedInContext);
   //set all the restaurants
   const [allRestaurants, setAllRestaurants] = useContext(AllRestaurantsContext);
   //fetch the users that have signed up already
@@ -30,12 +44,16 @@ function App() {
       .then((data) => setAllUsers(data));
   }, []);
 
+  
+
   //make a useEffect to pull all the restaurants
   useEffect(() => {
     fetch("http://localhost:3000/restaurants")
-      .then((resp) => resp.json())
+      .then((resp) => (resp.json()))
       .then((data) => setAllRestaurants(data));
   }, []);
+
+  
 
   ///////////////////////// SIGN IN ////////////////////////////////
   function handleSignInSubmit(e) {
@@ -103,9 +121,9 @@ function App() {
       } else {
         alert("Thanks for Signing Up!");
         //if user is in the system, redirect the website to the list of restaurants
-        history.push("/restaurants");
+        history.push("/signin");
         //set the state of logged in to true
-        setLoggedIn(true);
+        // setLoggedIn(true);
 
         //save current user
         setCurrentUser(e.target.username.value);
@@ -148,6 +166,7 @@ function App() {
             allUsers={allUsers}
             allRestaurants={allRestaurants}
             loggedIn={loggedIn}
+            currentPath={currentPath}
           />
         </Route>
         <Route path="/signup">

@@ -2,14 +2,14 @@ import React from "react";
 import RestaurantTile from "./RestaurantTile";
 
 function NotLiked({
-  allRestaurants,
+  dislikedRes,
   handleLike,
   handleDisLike,
   disableDislike,
 }) {
   //if statement based off of true/false on logged in or not
 
-  const restuarantArray = allRestaurants.map((res) => {
+  const restuarantArray = dislikedRes.map((res) => {
     return (
       <RestaurantTile
         key={res.id}

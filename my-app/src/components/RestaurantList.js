@@ -4,24 +4,27 @@ import Liked from "./Liked";
 import { UserLoggedInContext } from "../context/UserLoggedIn";
 import { AllRestaurantsContext } from "../context/AllRestaurants";
 
+
 //we initialize an array of what is liked
 let likedArray = [];
 
-function RestaurantList({ allUsers }) {
+function RestaurantList({ allUsers, currentPath }) {
+
+
   const [currentUser] = useContext(UserLoggedInContext); //username is set to currentUser
-  const [allRestaurants, setAllRestaurants] = useContext(AllRestaurantsContext);
+  const [allRestaurants] = useContext(AllRestaurantsContext);
   //then we can do a filter where we return id
   const userID = allUsers.filter((user) => {
     return user.username === currentUser;
   });
 
-  // console.log(userID);
-
   const [likedRes, setLikedRes] = useState([]);
+  const [dislikedRes,setDislikedRes] = useState(allRestaurants)
   const [disable, setDisable] = useState(false); //disable Like button after a click
   const [disableDislike, setDisbaleDislike] = useState(true);
-
+  
   useEffect(() => {
+    //if there is a userID and the restaurants are loaded run the if statement
     if (userID.length && allRestaurants.length) {
       let likedListOfUser = userID[0].liked;
       //we do a filter on allrestaurants to filter what has been liked already
@@ -33,13 +36,31 @@ function RestaurantList({ allUsers }) {
       });
       setLikedRes(alreadyLiked); //we're setting the number 1 and 2. Not the restaurant data
       likedArray = likedListOfUser;
-      setAllRestaurants((allRestaurants) => noLiked);
+      setDislikedRes((dislikedRes) => noLiked);
       setDisable(true);
+    }else{
+      console.log(allRestaurants)
+      setDislikedRes(allRestaurants)
     }
-    //we're setting the number 1 and 2. Not the restaurant data
-  }, [currentUser]);
 
-  console.log(likedRes);
+    //we're setting the number 1 and 2. Not the restaurant data
+  }, [currentUser, currentPath, allRestaurants]); //dependency on username change, link change, and all restaurants being updated 
+
+  //console.log(likedRes);
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
   // when like button gets clicked, clicked data gets sent to this function
   function handleLike(data) {
     // filter all restaurant and return all except for the one that we liked
@@ -48,7 +69,7 @@ function RestaurantList({ allUsers }) {
     });
     //add the restaurant id to the liked array
     likedArray.push(data.id);
-
+    
     fetch(`http://localhost:3000/users/${userID[0].id}`, {
       method: "PATCH",
       headers: {
@@ -61,7 +82,7 @@ function RestaurantList({ allUsers }) {
     // push the data that we liked to liked restauarant list
     setLikedRes([...likedRes, data]);
     // we set all restaurant to show all excepte for the one that we like
-    setAllRestaurants((allRestaurants) => filteredLike);
+    setDislikedRes((dislikedRes) => filteredLike);
     //disable the like button
     //document.querySelector("#like_button").disabled = true;
     setDisable(true);
@@ -76,7 +97,7 @@ function RestaurantList({ allUsers }) {
     // updaate liked restaurant list to show all except the one that we disliked
     setLikedRes((likedRes) => filteredRes);
     // we update the data that we disliked to all restaurant list
-    setAllRestaurants([...allRestaurants, data]);
+    setDislikedRes([...dislikedRes, data]);
     //disable dislike button
     setDisbaleDislike(true);
 
@@ -104,7 +125,7 @@ function RestaurantList({ allUsers }) {
         disable={disable}
       />
       <NotLiked
-        allRestaurants={allRestaurants}
+        dislikedRes={dislikedRes}
         handleLike={handleLike}
         handleDisLike={handleDisLike}
         disableDislike={disableDislike}

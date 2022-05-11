@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { UserLoggedInProvider } from "./context/UserLoggedIn";
 import { AllRestaurantsProvider } from "./context/AllRestaurants";
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AllRestaurantsProvider>
@@ -16,7 +17,6 @@ root.render(
   </BrowserRouter>
   </UserLoggedInProvider>
   </AllRestaurantsProvider>
-
 );
 
 // If you want to start measuring performance in your app, pass a function

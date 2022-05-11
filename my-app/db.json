@@ -99,7 +99,8 @@
       "password": "joe",
       "liked": [
         1,
-        2
+        2,
+        3
       ]
     },
     {
@@ -133,6 +134,23 @@
       "password": "logan",
       "liked": [],
       "id": 6
+    },
+    {
+      "username": "karina",
+      "password": "karina",
+      "liked": [
+        3
+      ],
+      "id": 7
+    },
+    {
+      "username": "miller",
+      "password": "miller",
+      "liked": [
+        1,
+        2
+      ],
+      "id": 8
     }
   ]
 }
