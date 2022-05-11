@@ -1,3 +1,7 @@
+.nav {
+  color:aqua;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,153 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.media-scroller {
+  --_spacer: var(--size-3);
+  display: grid;
+  gap: var(--_spacer);
+  grid-auto-flow: column;
+  grid-auto-columns: 21%;
+
+  padding: 0 var(--_spacer) var(--_spacer);
+
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.media-element {
+  display: grid;
+  grid-template-rows: min-content;
+  gap: var(--_spacer);
+  padding: var(--_spacer);
+  background: var(--surface-2);
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-2);
+}
+
+.media-element > img {
+  inline-size: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: var(--_spacer, 1rem);
+}
+
+.snaps-inline > * {
+  scroll-snap-align: start;
+}
+
+#home {
+  background-image: url('logo.png');
+  background-color: black;
+
+  height: 100vh;
+
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size:cover
+}
+
+#about {
+  background-image: url('koreanbbq.jpg');
+  background-color: black;
+  
+  height: 100vh;
+
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+  opacity: 0.9;
+}
+
+/* //////////////////////THIS IS FOR SIGN IN AND SIGN UP ONLY////////////////////// */
+.loginbox{
+  width: 320px;
+  height: 420px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+}
+
+h3 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.loginbox p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.loginbox input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.loginbox input[type="username"], input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px; 
+}
+
+.loginbox button[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: aqua;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+
+.loginbox button[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+/* //////////////////////////////////////////////////  */
+#aboutdetail {
+  justify-content: center;
+  align-items: center;
+  display: block;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(255, 254, 254, 0.6);
+  width: 300px;
+  /* border: 3px solid white; */
+  height: 300px;
+  padding-top: 40px;
+
+  margin-left: auto ;
+  margin-right: auto ;
+  
+}
+
+#aboutdetail p{
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1)
+}
+
+body, html{
+  height:100%;
+
 }

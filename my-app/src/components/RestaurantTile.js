@@ -11,7 +11,7 @@ function RestaurantTile({
   const { id, name, image, location, phone, menu } = res;
 
   return (
-    <div>
+    <div className="media-element">
       <h3>{name}</h3>
       <img src={image} alt={name} height={250} />
       <br />

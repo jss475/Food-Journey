@@ -2,8 +2,15 @@ import React from "react";
 
 function Home() {
   return (
-    <div id="about">
-      <h1>Welcome to My Food Journey</h1>
+    <div id="home">
+      {/* <h1
+
+      // style={{
+      //   backgroundImage: `url('/logo2.png')`,
+      // }}
+      >
+        Welcome to My Food Journey
+      </h1> */}
     </div>
   );
 }

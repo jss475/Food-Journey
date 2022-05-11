@@ -2,7 +2,7 @@ import logo from "../logo.svg";
 import React, { useEffect, useState, useContext } from "react";
 import "../App.css";
 import About from "./About";
-import Nav from "./Nav";
+import NavbarComponent from "./Nav";
 import RestaurantList from "./RestaurantList";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
@@ -11,11 +11,11 @@ import { Switch, Route, Link, useHistory } from "react-router-dom";
 import Home from "./Home";
 import { UserLoggedInContext } from "../context/UserLoggedIn";
 import { AllRestaurantsContext } from "../context/AllRestaurants";
-import {SignedInContext} from "../context/SignedIn"
+import { SignedInContext } from "../context/SignedIn";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Navbar, Nav } from "react-bootstrap";
 
 function App() {
-
-
   //create useState for the list of users signed up already
   const [allUsers, setAllUsers] = useState([]);
   //set the history variable to use the useHistory hook
@@ -23,15 +23,13 @@ function App() {
 
   //we are tracking the route changes wit a state variable called current path
   //current path is then sent to restaurantlist where it is used in the useEffect
-  const [currentPath, setCurrentPath] = useState('')
+  const [currentPath, setCurrentPath] = useState("");
   useEffect(() => {
-    return history.listen((location) => { 
-       console.log(`You changed the page to: ${location.pathname}`)
-       setCurrentPath(location.pathname) 
-    }) 
- },[history]) 
-
-
+    return history.listen((location) => {
+      console.log(`You changed the page to: ${location.pathname}`);
+      setCurrentPath(location.pathname);
+    });
+  }, [history]);
 
   //set the logged in state to say user has logged in
   const [loggedIn, setLoggedIn] = useContext(SignedInContext);
@@ -47,19 +45,17 @@ function App() {
       .then((data) => setAllUsers(data));
   }, []);
 
-  
-
   //make a useEffect to pull all the restaurants
   useEffect(() => {
     fetch("http://localhost:3000/restaurants")
-      .then((resp) => (resp.json()))
+      .then((resp) => resp.json())
       .then((data) => setAllRestaurants(data));
   }, []);
 
   // if(currentPath === '/logout'){
   //   if(currentUser.length && loggedIn===true){
   //     alert("You've logged out!")
-      
+
   //     setCurrentUser('')
   //     setLoggedIn(false)
   //     history.push('/')
@@ -68,7 +64,6 @@ function App() {
   //     history.push('/signin')
   //   }
   // }
-  
 
   ///////////////////////// SIGN IN ////////////////////////////////
   function handleSignInSubmit(e) {
@@ -104,7 +99,7 @@ function App() {
         //if user is in the system, redirect the website to restaurants
         history.push("/restaurants");
         //local storage of username
-        localStorage.setItem('username',e.target.username.value)
+        localStorage.setItem("username", e.target.username.value);
       }
     }
     //do the history to send to home/restaurant list after signing in
@@ -170,7 +165,7 @@ function App() {
 
   return (
     <div>
-      <Nav />
+      <NavbarComponent />
       <Switch>
         <Route path="/about">
           <About />
@@ -196,9 +191,8 @@ function App() {
           <h1>404 not found</h1>
         </Route>
       </Switch>
-   
-      <Logout />
 
+      {/* <Logout /> */}
     </div>
   );
 }
