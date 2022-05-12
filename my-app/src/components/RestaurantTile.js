@@ -15,7 +15,7 @@ function RestaurantTile({
   return (
     <div className="media-element">
       <Card bg="light" bsPrefix="customCard" style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={image} />
+        <Card.Img variant="top" src={image} className="card_image" />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>{location}</Card.Text>

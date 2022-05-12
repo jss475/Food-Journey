@@ -244,3 +244,7 @@ overscroll-behavior-inline: contain;
   margin: 1rem 2rem;
   
 }
+
+.card_image {
+  height: 180px;
+}
