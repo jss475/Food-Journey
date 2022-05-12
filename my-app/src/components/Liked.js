@@ -30,13 +30,16 @@ function Liked({
   if (loggedIn === true) {
     loggedInCheck = true;
   } else {
+
     loggedInCheck = false;
   }
 
   //if you refresh, i'm checking to see if you're already there
   const userLoggedBefore = localStorage.getItem("username");
-  if (userLoggedBefore === null) {
+  if (userLoggedBefore === null || userLoggedBefore === '') {
+
   } else {
+
     loggedInCheck = true;
   }
 
