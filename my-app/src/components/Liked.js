@@ -41,10 +41,10 @@ function Liked({
   }
 
   return (
-    <>
+    <div className="container flow">
       {loggedInCheck ? <h2 id="liked_title">Liked Restaurants!</h2> : null}
       <div className="view_port">{restuarantArray}</div>
-    </>
+    </div>
   );
 }
 

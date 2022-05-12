@@ -12,44 +12,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/* 
- .media-scroller {
-  --_spacer: var(--size-3);
-  display: grid;
-  gap: var(--_spacer);
-  grid-auto-flow: column;
-  grid-auto-columns: 21%;
-
-  padding: 0 var(--_spacer) var(--_spacer);
-
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-}
-
-.media-element {
-  display: grid;
-  grid-template-rows: min-content;
-  gap: var(--_spacer);
-  padding: var(--_spacer);
-  background: var(--surface-2);
-  border-radius: var(--radius-2);
-  box-shadow: var(--shadow-2);
-}
-
-.media-element > img {
-  inline-size: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-.snaps-inline {
-  scroll-snap-type: inline mandatory;
-  scroll-padding-inline: var(--_spacer, 1rem);
-}
-
-.snaps-inline > * {
-  scroll-snap-align: start;
-}  */
 
 #home {
   background-image: url('logo1.gif');
@@ -215,36 +177,46 @@ body, html{
   text-align: center;
 }
 
+/* ////////////////////// carousel cards effect/////////////////////*/
  .view_port{
   --_spacer: var(--size-3);
-display: grid;
-gap: var(--_spacer);
-grid-auto-flow: column;
-grid-auto-columns: 21%;
+  display: grid;
+  gap: var(--_spacer);
+  grid-auto-flow: column;
+  grid-auto-columns: min-content; 
+  /* 25 before */
 
-padding: 0 var(--_spacer) var(--_spacer);
+  padding: 0 var(--_spacer) var(--_spacer);
 
-overflow-x: auto;
-overscroll-behavior-inline: contain;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+ 
 } 
  
 #media-element{
-    display: flex;
+    display: grid;
     flex-direction: row;
-    width: fit-content;
+   
   }
 
 .customCard {
   text-align: center;
   border:  #c2949d solid 2px;
   padding: 1rem;
-  width: 23rem;
+  width: 16rem;
   height: 23rem;
   border-radius: 10%;
   margin: 1rem 2rem;
+
   
 }
 
 .card_image {
   height: 180px;
+}
+
+
+
+#card_text{
+  height: 50px;
 }
