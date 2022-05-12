@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../smalllogo.gif";
 
-function SignIn({ handleSignInSubmit }) {
+function SignIn({ handleSignInSubmit, signInMsg }) {
   return (
     <div id="sign_in_bg">
       <div className="loginbox">
@@ -21,6 +21,9 @@ function SignIn({ handleSignInSubmit }) {
             placeholder="Enter your password"
           />
           <button type="submit">Submit</button>
+          <br />
+          <br />
+          <em>{signInMsg}</em>
         </form>
       </div>
     </div>

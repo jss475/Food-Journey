@@ -6,6 +6,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('about4.jpg');
+  background-size: cover
 }
 
 code {
@@ -39,7 +41,7 @@ code {
 
 
 
-#about {
+/* #about {
   background-image: url('koreanbbq.jpg');
   background-color: black;
   
@@ -50,7 +52,7 @@ code {
   background-size:cover;
   background-attachment: fixed;
   opacity: 0.9;
-}
+} */
 
 #sign_in_bg {
   background-image: url('login.jpg');
@@ -145,23 +147,7 @@ code {
   color: #000;
 }
 /* //////////////////////////////////////////////////  */
-#aboutdetail {
-  justify-content: center;
-  align-items: center;
-  display: block;
-  color: black;
-  font-weight: bold;
-  text-align: center;
-  background: rgba(255, 254, 254, 0.6);
-  width: 300px;
-  /* border: 3px solid white; */
-  height: 300px;
-  padding-top: 40px;
 
-  margin-left: auto ;
-  margin-right: auto ;
-  
-}
 
 #aboutdetail p{
   font-weight: bold;
@@ -239,5 +225,30 @@ body, html{
 
 .navbar-brand img{
   height: 40px;
-  width: 40px
+  width: 40px;
+  border-radius: 10px
+}
+
+#about {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: rgba(240,240,240,0.6);
+  font-family: 'Oswald', sans-serif;
+}
+
+.about_h2{
+  font-size: 50px
+}
+
+.about_p{
+  font-size: 30px
+}
+
+em{
+  color: rgb(223, 70, 70)
 }

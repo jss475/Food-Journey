@@ -38,6 +38,9 @@ function App() {
   const [currentUser, setCurrentUser] = useContext(UserLoggedInContext);
   //set all the restaurants
   const [allRestaurants, setAllRestaurants] = useContext(AllRestaurantsContext);
+
+  //set sign in message
+  const [signInMsg, setSignInMsg] = useState('')
   //fetch the users that have signed up already
   useEffect(() => {
     fetch("http://localhost:3000/users")
@@ -52,29 +55,18 @@ function App() {
       .then((data) => setAllRestaurants(data));
   }, []);
 
-  // if(currentPath === '/logout'){
-  //   if(currentUser.length && loggedIn===true){
-  //     alert("You've logged out!")
 
-  //     setCurrentUser('')
-  //     setLoggedIn(false)
-  //     history.push('/')
-  //   } else{
-  //     alert("You're not logged in!")
-  //     history.push('/signin')
-  //   }
-  // }
 
   ///////////////////////// SIGN IN ////////////////////////////////
   function handleSignInSubmit(e) {
     e.preventDefault();
     //if statement to make sure you fill out the form
     if (e.target.password.value === "" && e.target.username.value === "") {
-      alert("Please Fill Out Your Username and Password!");
+      setSignInMsg("Please Fill Out Your Username and Password!");
     } else if (e.target.password.value === "") {
-      alert("Please Fill Out Your Password");
+      setSignInMsg("Please Fill Out Your Password");
     } else if (e.target.username.value === "") {
-      alert("Please Fill Out Your Username");
+      setSignInMsg("Please Fill Out Your Username");
     } else {
       //filter out the users that are signed in
       let filteredUsers = allUsers.filter((user) => {
@@ -90,7 +82,8 @@ function App() {
 
       //if of bang of the .length so that I am looking for true when it's empty
       if (!filteredUsers.length) {
-        alert("Your Username and Password Are Not In The System");
+        //alert("Your Username and Password Are Not In The System");
+        setSignInMsg("Your Username and Password Are Not In The System")
       } else {
         //set the state of the users as logged in
         setLoggedIn(true);
@@ -112,11 +105,11 @@ function App() {
     e.preventDefault();
     //if statement to make sure you fill out the form
     if (e.target.password.value === "" && e.target.username.value === "") {
-      alert("Please Fill Out Your Username and Password!");
+      setSignInMsg("Please Fill Out Your Username and Password!");
     } else if (e.target.password.value === "") {
-      alert("Please Fill Out Your Password");
+      setSignInMsg("Please Fill Out Your Password");
     } else if (e.target.username.value === "") {
-      alert("Please Fill Out Your Username");
+      setSignInMsg("Please Fill Out Your Username");
     } else {
       //filter out the users that have the same username
       let filteredUsers = allUsers.filter((user) => {
@@ -129,9 +122,9 @@ function App() {
 
       //if of bang of the .length so that I am looking for true when it's empty
       if (filteredUsers.length) {
-        alert("Your Username Is In The System. Please Choose Another One!");
+        setSignInMsg("Your Username Is In The System. Please Choose Another One!");
       } else {
-        alert("Thanks for Signing Up!");
+        setSignInMsg("Thanks for Signing Up!");
         //if user is in the system, redirect the website to the list of restaurants
         history.push("/signin");
         //set the state of logged in to true
@@ -156,6 +149,11 @@ function App() {
         fetch("http://localhost:3000/users", configObj)
           .then((res) => res.json())
           .then((data) => setAllUsers([...allUsers, data]));
+
+        //optimistically setallusers
+        setAllUsers([...allUsers, {username: e.target.username.value,
+          password: e.target.password.value,
+          liked: []}])
       }
     }
 
@@ -171,7 +169,7 @@ function App() {
           <About />
         </Route>
         <Route path="/signin">
-          <SignIn handleSignInSubmit={handleSignInSubmit} />
+          <SignIn handleSignInSubmit={handleSignInSubmit} signInMsg={signInMsg}/>
         </Route>
         <Route path="/restaurants">
           <RestaurantList
@@ -182,7 +180,7 @@ function App() {
           />
         </Route>
         <Route path="/signup">
-          <SignUp handleSignUpSubmit={handleSignUpSubmit} />
+          <SignUp handleSignUpSubmit={handleSignUpSubmit} signInMsg={signInMsg} />
         </Route>
         <Route exact path="/">
           <Home />

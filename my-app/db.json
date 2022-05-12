@@ -157,7 +157,8 @@
       "liked": [
         1,
         2,
-        3
+        3,
+        6
       ],
       "id": 2
     },
@@ -197,10 +198,17 @@
       "username": "miller",
       "password": "miller",
       "liked": [
-        1,
         2
       ],
       "id": 8
+    },
+    {
+      "username": "loganmiller",
+      "password": "loganmiller",
+      "liked": [
+        1
+      ],
+      "id": 9
     }
   ]
 }

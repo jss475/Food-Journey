@@ -15,7 +15,8 @@ function RestaurantTile({
   return (
     <div className="media-element">
       <CardGroup>
-        <Card bg="light" bsPrefix="customCard" style={{ "min-width": "14rem" }}>
+        <Card bg="light" bsPrefix="customCard" >
+        {/* style={{ "min-width": "14rem" }} */}
           <Card.Img variant="top" src={image} className="card_image" />
           <Card.Body>
             <Card.Title>{name}</Card.Title>
