@@ -236,3 +236,8 @@ body, html{
   height: 60px;
 
 }
+
+.navbar-brand img{
+  height: 40px;
+  width: 40px
+}
