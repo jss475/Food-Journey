@@ -24,9 +24,25 @@ function Liked({
     );
   });
 
+  let loggedInCheck;
+
+  //this is for when you first log in
+  if (loggedIn === true) {
+    loggedInCheck = true;
+  } else {
+    loggedInCheck = false;
+  }
+
+  //if you refresh, i'm checking to see if you're already there
+  const userLoggedBefore = localStorage.getItem("username");
+  if (userLoggedBefore === null) {
+  } else {
+    loggedInCheck = true;
+  }
+
   return (
     <>
-      {<h2 id="liked_title">Liked Restaurants!</h2>}
+      {loggedInCheck ? <h2 id="liked_title">Liked Restaurants!</h2> : null}
       <div className="view_port">{restuarantArray}</div>
     </>
   );
