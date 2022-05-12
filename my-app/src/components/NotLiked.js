@@ -26,7 +26,7 @@ function NotLiked({
   });
 
   return (
-    <div className="container flow">
+    <div className="container_flow">
       <h2 id="not_like_title">Check These Out!</h2>
       <div className="view_port">{restuarantArray}</div>
     </div>

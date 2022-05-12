@@ -155,7 +155,9 @@
       "username": "hyun",
       "password": "hyun",
       "liked": [
-        5
+        1,
+        2,
+        3
       ],
       "id": 2
     },
