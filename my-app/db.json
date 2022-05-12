@@ -93,7 +93,7 @@
         "Rhubarb",
         "Carrot"
       ],
-      "menulink":"https://www.jungsik.com/eats/"
+      "menulink": "https://www.jungsik.com/eats/"
     },
     {
       "id": 5,
@@ -138,7 +138,7 @@
       "location": "10 E. 33rd St., New York, 10016, United States",
       "phone": "",
       "menu": [],
-      "menulink":"https://uploads-ssl.webflow.com/5ff02063f528ecac6a836157/62582c20be131e064fe0ac98_HYUN_7Courses_2022_0414_BG.pdf"
+      "menulink": "https://uploads-ssl.webflow.com/5ff02063f528ecac6a836157/62582c20be131e064fe0ac98_HYUN_7Courses_2022_0414_BG.pdf"
     },
     {
       "id": 10,
@@ -288,7 +288,10 @@
       "username": "loganmiller",
       "password": "loganmiller",
       "liked": [
-        1
+        1,
+        3,
+        17,
+        15
       ],
       "id": 9
     },

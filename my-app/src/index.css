@@ -208,7 +208,7 @@ body, html{
 
 .customCard {
   text-align: center;
-  border:  #c2949d solid 2px;
+  border:  #D92B4B solid 3px;
   padding: 1rem;
   width: 16rem;
   height: 24rem;
@@ -219,6 +219,7 @@ body, html{
 
 .card_image {
   height: 180px;
+  border: #D92B4B solid 3.5px;
 }
 
 .card_text{
@@ -232,7 +233,7 @@ body, html{
 .navbar-brand img{
   height: 40px;
   width: 40px;
-  border-radius: 10px
+  border-radius: 100px
 }
 
 #about {
