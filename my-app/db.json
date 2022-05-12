@@ -90,6 +90,54 @@
         "Rhubarb",
         "Carrot"
       ]
+    },
+    {
+      "id": 5,
+      "name": "Gayeon",
+      "image": "https://images.squarespace-cdn.com/content/v1/58e54f4f2994ca79f4a8ccb9/1497729272176-Z9G2DF9YVAZ71XXOC4OH/Gayeon_Interior_010_edited.jpg?format=2500w",
+      "location": "2020 Hudson St, Fort Lee, NJ 07024",
+      "phone": "201-944-2056",
+      "menu": []
+    },
+    {
+      "id": 6,
+      "name": "Atoboy",
+      "image": "https://scontent.fewr1-6.fna.fbcdn.net/v/t1.6435-9/40610528_2261188380834076_2921531274084483072_n.jpg?_nc_cat=109&ccb=1-6&_nc_sid=e3f864&_nc_ohc=oIF40ShjgoEAX-xlitp&_nc_ht=scontent.fewr1-6.fna&oh=00_AT-DNV_pgOp8fjyvyT4M8GkiLh46x4kkQP0Rnwsa-GuwJw&oe=62A107B4",
+      "location": "43 E 28th St, New York, NY 10016",
+      "phone": "646-476-7217",
+      "menu": []
+    },
+    {
+      "id": 7,
+      "name": "Atomix",
+      "image": "https://pyxis.nymag.com/v1/imgs/e4a/ebe/43eca43d096042466947b2378c437cf1e1-atomix-01.rsocial.w1200.jpg",
+      "location": "104 E 30th St, New York, NY 10016",
+      "phone": "",
+      "menu": []
+    },
+    {
+      "id": 8,
+      "name": "Haenyeo",
+      "image": "https://cdn.vox-cdn.com/uploads/chorus_asset/file/16017186/Haenyeo_26.jpg",
+      "location": "239 Fifth Ave., New York, 11215, United States",
+      "phone": "",
+      "menu": []
+    },
+    {
+      "id": 9,
+      "name": "Hyun",
+      "image": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2019%2F10%2FHYUN-interior-FT-BLOG0919.jpg",
+      "location": "10 E. 33rd St., New York, 10016, United States",
+      "phone": "",
+      "menu": []
+    },
+    {
+      "id": 10,
+      "name": "Kochi",
+      "image": "http://kochinyc.com/wp-content/uploads/2019/10/S7A2252.jpg",
+      "location": "652 Tenth Ave., New York, 10036, United States",
+      "phone": "",
+      "menu": []
     }
   ],
   "users": [
@@ -107,7 +155,9 @@
       "username": "hyun",
       "password": "hyun",
       "liked": [
-        1
+        1,
+        2,
+        3
       ],
       "id": 2
     },

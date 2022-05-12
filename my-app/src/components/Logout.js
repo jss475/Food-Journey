@@ -29,7 +29,7 @@ function Logout() {
   console.log(loggedIn);
 
   return (
-    <Button type="button" onClick={handleLogOut} variant="info">
+    <Button type="button" onClick={handleLogOut} variant="danger">
       Log Out
     </Button>
   );

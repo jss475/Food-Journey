@@ -1,36 +1,48 @@
+import { toBeDisabled } from "@testing-library/jest-dom/dist/matchers";
 import React, { useState } from "react";
+import { Button, Card } from "react-bootstrap";
 
 function RestaurantTile({
   res,
   handleLike,
   handleDisLike,
   disable,
-  disableDislike,
   loggedIn,
+  disableDislike,
 }) {
   const { id, name, image, location, phone, menu } = res;
 
   return (
     <div className="media-element">
-      <h3>{name}</h3>
-      <img src={image} alt={name} height={250} />
-      <br />
-      <button
-        id="like_button"
-        disabled={loggedIn ? disable : !disable}
-        onClick={() => {
-          handleLike(res);
-        }}
-      >
-        👍
-      </button>
-      <button
-        id="dislike_button"
-        disabled={disableDislike}
-        onClick={() => handleDisLike(res)}
-      >
-        👎
-      </button>
+      <Card bg="light" bsPrefix="customCard" style={{ width: "18rem" }}>
+        <Card.Img variant="top" src={image} />
+        <Card.Body>
+          <Card.Title>{name}</Card.Title>
+          <Card.Text>{location}</Card.Text>
+          <Button
+            variant="danger"
+            id="like_button"
+            disabled={disable}
+            onClick={() => {
+              handleLike(res);
+            }}
+          >
+            👍
+          </Button>
+          <Button
+            variant="danger"
+            id="dislike_button"
+            disabled={disable}
+            onClick={() => handleDisLike(res)}
+          >
+            👎
+          </Button>
+        </Card.Body>
+      </Card>
+
+      {/* <h3>{name}</h3>
+      <img src={image} alt={name} height={250} /> */}
+      {/* <br /> */}
     </div>
   );
 }

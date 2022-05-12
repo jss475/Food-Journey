@@ -6,8 +6,8 @@ function Liked({
   handleLike,
   handleDisLike,
   disable,
-  disableDislike,
   loggedIn,
+  disableDislike,
 }) {
   //if statement based off of true/false on logged in or not
 
@@ -26,8 +26,8 @@ function Liked({
 
   return (
     <>
-      <h2>Liked Restaurants!</h2>
-      {restuarantArray}
+      {<h2 id="liked_title">Liked Restaurants!</h2>}
+      <div className="view_port">{restuarantArray}</div>
     </>
   );
 }

@@ -12,8 +12,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.media-scroller {
+/* 
+ .media-scroller {
   --_spacer: var(--size-3);
   display: grid;
   gap: var(--_spacer);
@@ -49,10 +49,10 @@ code {
 
 .snaps-inline > * {
   scroll-snap-align: start;
-}
+}  */
 
 #home {
-  background-image: url('logo.png');
+  background-image: url('logo1.gif');
   background-color: black;
 
   height: 100vh;
@@ -61,6 +61,8 @@ code {
   background-repeat: no-repeat;
   background-size:cover
 }
+
+
 
 #about {
   background-image: url('koreanbbq.jpg');
@@ -112,7 +114,18 @@ code {
   padding: 70px 30px;
 }
 
-h3 {
+.avatar{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  top: -70px;
+  left: calc(50% - 60px);
+
+
+}
+
+#sign_in_up_text {
   margin: 0;
   padding: 0 0 20px;
   text-align: center;
@@ -144,16 +157,16 @@ h3 {
   border: none;
   outline: none;
   height: 40px;
-  background: aqua;
+  background: #D92B4B;
   color: #fff;
   font-size: 18px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 
 .loginbox button[type="submit"]:hover {
   cursor: pointer;
-  background: #ffc107;
+  background: #3906cf;
   color: #000;
 }
 /* //////////////////////////////////////////////////  */
@@ -183,4 +196,51 @@ h3 {
 body, html{
   height:100%;
 
+}
+
+#like_button {
+  margin-right: 5px;
+  border-radius: 12px;
+}
+
+#dislike_button{
+  border-radius: 12px;
+}
+/* //////////////Restaurant Page CSS////////////////////////////////////  */
+
+#not_like_title {
+  text-align: center;
+}
+#liked_title {
+  text-align: center;
+}
+
+ .view_port{
+  --_spacer: var(--size-3);
+display: grid;
+gap: var(--_spacer);
+grid-auto-flow: column;
+grid-auto-columns: 21%;
+
+padding: 0 var(--_spacer) var(--_spacer);
+
+overflow-x: auto;
+overscroll-behavior-inline: contain;
+} 
+ 
+#media-element{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+  }
+
+.customCard {
+  text-align: center;
+  border:  #c2949d solid 2px;
+  padding: 1rem;
+  width: 23rem;
+  height: 23rem;
+  border-radius: 10%;
+  margin: 1rem 2rem;
+  
 }

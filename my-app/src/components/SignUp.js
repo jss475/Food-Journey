@@ -4,7 +4,7 @@ function SignUp({ handleSignUpSubmit }) {
   return (
     <div id="sign_up_bg">
       <div className="loginbox">
-        <h3>Please Sign Up!</h3>
+        <h3 id="sign_in_up_text">Please Sign Up!</h3>
         <form id="sign_up_form" onSubmit={handleSignUpSubmit}>
           <p>Username</p>
           <input

@@ -18,7 +18,7 @@ function NotLiked({
         res={res}
         handleLike={handleLike}
         handleDisLike={handleDisLike}
-        disableDislike={disableDislike}
+        disable={disableDislike}
         loggedIn={loggedIn}
       />
     );
@@ -26,8 +26,8 @@ function NotLiked({
 
   return (
     <>
-      <h2>Check These Out!</h2>
-      {restuarantArray}
+      <h2 id="not_like_title">Check These Out!</h2>
+      <div className="view_port">{restuarantArray}</div>
     </>
   );
 }
