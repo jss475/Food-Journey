@@ -32,7 +32,7 @@ function RestaurantTile({
           <Button
             variant="danger"
             id="dislike_button"
-            disabled={disable}
+            disabled={disableDislike}
             onClick={() => handleDisLike(res)}
           >
             👎

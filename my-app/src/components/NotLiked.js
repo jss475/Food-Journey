@@ -18,8 +18,9 @@ function NotLiked({
         res={res}
         handleLike={handleLike}
         handleDisLike={handleDisLike}
-        disable={disableDislike}
         loggedIn={loggedIn}
+        disable={disable}
+        disableDislike={!disableDislike}
       />
     );
   });

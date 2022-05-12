@@ -18,8 +18,8 @@ function Liked({
         res={res}
         handleLike={handleLike}
         handleDisLike={handleDisLike}
-        disable={disable}
         loggedIn={loggedIn}
+        disable={!disable}
       />
     );
   });

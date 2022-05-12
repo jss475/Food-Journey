@@ -17,8 +17,8 @@ function RestaurantList({ allUsers, currentPath, loggedIn }) {
 
   const [likedRes, setLikedRes] = useState([]);
   const [dislikedRes, setDislikedRes] = useState(allRestaurants);
-  const [disable, setDisable] = useState(false); //disable Like button after a click
-  const [disableDislike, setDisbaleDislike] = useState(true);
+  const [disable, setDisable] = useState(true); //disable Like button after a click
+  const [disableDislike, setDisbaleDislike] = useState(false);
 
   console.log("before useEffect", disable);
   console.log("before useEffect", disableDislike);
@@ -38,7 +38,7 @@ function RestaurantList({ allUsers, currentPath, loggedIn }) {
       setLikedRes(alreadyLiked); //we're setting the number 1 and 2. Not the restaurant data
       likedArray = likedListOfUser;
       setDislikedRes((dislikedRes) => noLiked);
-      setDisable(false);
+      setDisable((disable) => false);
     } else {
       console.log(allRestaurants);
       setDislikedRes(allRestaurants);
