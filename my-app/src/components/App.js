@@ -164,7 +164,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app_div">
       <NavbarComponent />
       <Switch>
         <Route path="/about">

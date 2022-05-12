@@ -180,7 +180,86 @@ h3 {
   color: rgba(0, 0, 0, 1)
 }
 
-body, html{
+/* body, html{
   height:100%;
 
+} */
+
+/* ///////////////////////////// GALLERY OF IMAGES FOR ABOUT US ////////////////////// */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 5vw);
+  grid-gap: 10px;
+}
+
+/* styling each image */
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* styling 1st grid item */
+.gallery__item--1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+/* styline 2nd grid item */
+.gallery__item--2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+/* styling 3rd grid item */
+.gallery__item--3 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+
+/* styling 4th grid item */
+.gallery__item--4 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
+
+/* styling 5th grid item */
+.gallery__item--5 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 6;
+  grid-row-end: 9;
+}
+
+/* styling 6th grid item */
+.gallery__item--6 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 6;
+  grid-row-end: 9;
+}
+
+.about_div{
+  display: flex;
+  flex-direction: row;
+  margin-top: 2%;
+}
+
+.about_div_text{
+  width:30%
+}
+
+.app_div{
+  background-color: bisque;
+  height: 100%;
+  /* height: 100vh; */
 }

@@ -26,6 +26,7 @@ function RestaurantList({ allUsers, currentPath, loggedIn }) {
   useEffect(() => {
     //if there is a userID and the restaurants are loaded run the if statement
     if (userID.length && allRestaurants.length) {
+      debugger
       let likedListOfUser = userID[0].liked;
       //we do a filter on allrestaurants to filter what has been liked already
       let alreadyLiked = allRestaurants.filter((res) => {
@@ -37,7 +38,8 @@ function RestaurantList({ allUsers, currentPath, loggedIn }) {
       setLikedRes(alreadyLiked); //we're setting the number 1 and 2. Not the restaurant data
       likedArray = likedListOfUser;
       setDislikedRes((dislikedRes) => noLiked);
-      setDisable(true);
+      //setDisable(true);
+      
     }else{
       console.log(allRestaurants)
       setDislikedRes(allRestaurants)
@@ -57,25 +59,22 @@ function RestaurantList({ allUsers, currentPath, loggedIn }) {
   
 
 
-
-
-
-
-
-
-
-
-
-
-
   // when like button gets clicked, clicked data gets sent to this function
   function handleLike(data) {
+    debugger
     // filter all restaurant and return all except for the one that we liked
     const filteredLike = allRestaurants.filter((res) => {
       return res.id !== data.id;
     });
+
+    
     //add the restaurant id to the liked array
     likedArray.push(data.id);
+
+    //filter dislike
+    const filteredDislike = allRestaurants.filter((res)=> {
+      return !likedArray.includes(res.id)
+    })
     
     fetch(`http://localhost:3000/users/${userID[0].id}`, {
       method: "PATCH",
@@ -89,7 +88,7 @@ function RestaurantList({ allUsers, currentPath, loggedIn }) {
     // push the data that we liked to liked restauarant list
     setLikedRes([...likedRes, data]);
     // we set all restaurant to show all excepte for the one that we like
-    setDislikedRes((dislikedRes) => filteredLike);
+    setDislikedRes((dislikedRes) => filteredDislike);
     //disable the like button
     //document.querySelector("#like_button").disabled = true;
     setDisable(true);

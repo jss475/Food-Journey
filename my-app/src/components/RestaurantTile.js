@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function RestaurantTile({
   res,
@@ -9,7 +9,9 @@ function RestaurantTile({
   loggedIn,
 }) {
   const { id, name, image, location, phone, menu } = res;
-
+  //disable is like, initially set to false so that it's not disabled
+  //disableDislike is dislike, initially set to true so that you can't dislike what's not liked
+  
   return (
     <div className="media-element">
       <h3>{name}</h3>
