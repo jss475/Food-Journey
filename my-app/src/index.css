@@ -162,10 +162,12 @@ body, html{
 #like_button {
   margin-right: 5px;
   border-radius: 12px;
+  margin-top: 10px
 }
 
 #dislike_button{
   border-radius: 12px;
+  margin-top: 10px
 }
 /* //////////////Restaurant Page CSS////////////////////////////////////  */
 
@@ -201,6 +203,7 @@ body, html{
 #media-element{
     display: grid;
     flex-direction: row;
+    
   }
 
 .customCard {
@@ -208,20 +211,23 @@ body, html{
   border:  #c2949d solid 2px;
   padding: 1rem;
   width: 16rem;
-  height: 23rem;
+  height: 24rem;
   border-radius: 10%;
   margin: 1rem 1rem;
+  font-family: 'Oswald', sans-serif;
 }
 
 .card_image {
   height: 180px;
 }
 
-
-#card_text{
-  height: 60px;
-
+.card_text{
+  height: 30px;
+  width: 200px;
+  margin-bottom: 23px;
 }
+
+
 
 .navbar-brand img{
   height: 40px;
@@ -251,4 +257,17 @@ body, html{
 
 em{
   color: rgb(223, 70, 70)
+}
+
+
+.box{
+  display: none;
+  width: 100%;
+}
+.card-link:hover + .box,.box:hover{
+    display: block;
+    position: absolute;
+    z-index: 100;
+    margin-left: -40%;
+    margin-top: -30%
 }
