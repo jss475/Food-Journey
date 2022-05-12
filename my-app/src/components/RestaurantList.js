@@ -110,7 +110,7 @@ function RestaurantList({ allUsers, currentPath, loggedIn }) {
   }
 
   return (
-    <>
+    <div id="restaurant">
       <Liked
         likedRes={likedRes}
         handleLike={handleLike}
@@ -127,7 +127,7 @@ function RestaurantList({ allUsers, currentPath, loggedIn }) {
         disable={disable}
         loggedIn={loggedIn}
       />
-    </>
+    </div>
   );
 }
 
