@@ -124,7 +124,7 @@ function App() {
       if (filteredUsers.length) {
         setSignInMsg("Your Username Is In The System. Please Choose Another One!");
       } else {
-        setSignInMsg("Thanks for Signing Up!");
+        setSignInMsg("Thanks for Signing Up! Please Sign In!");
         //if user is in the system, redirect the website to the list of restaurants
         history.push("/signin");
         //set the state of logged in to true
@@ -163,7 +163,7 @@ function App() {
 
   return (
     <div>
-      <NavbarComponent />
+      <NavbarComponent loggedIn={loggedIn}/>
       <Switch>
         <Route path="/about">
           <About />
