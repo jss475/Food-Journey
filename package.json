@@ -5,8 +5,11 @@
         "node": "16.x"
     },
     "homepage": "/",
-    "scripts": {"start": "node server/server.js"},
+    "scripts": {
+        "start": "node server/server.js",
+        "build": "react-scripts build"},
     "dependencies": {
+        "react-scripts": "5.0.1",
         "express": "^4.18.1"
     }
 }
