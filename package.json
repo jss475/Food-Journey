@@ -2,10 +2,11 @@
     "name": "phase-4-deploying-app-demo",
     "description": "Build scripts for Heroku",
     "engines": {
-      "node": "16.x"
+        "node": "16.x"
     },
-    "scripts": {
-
+    "homepage": "/",
+    "scripts": {"start": "node server/server.js"},
+    "dependencies": {
+        "express": "^4.18.1"
     }
-  }
-  
+}
